@@ -7,9 +7,23 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 
         mc:Ignorable="d"
-        Title="MainWindow" 
+        Title="CryptoApp"
+        WindowStyle="None"
         MinHeight="450" 
-        MinWidth="800">
+        MinWidth="800"
+        >
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" CornerRadius="0" GlassFrameThickness="0"  />
+    </WindowChrome.WindowChrome>
+
+    <Window.Resources>
+        <Style x:Key="OperationalButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+            <Setter Property="Width" Value="50" />
+            <Setter Property="Height" Value="35" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <!-- Header -->
@@ -17,6 +31,27 @@
             <!--Content Section-->
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Rectangle Fill="IndianRed" />
+        <!--TODO: ADD THIS TO HEADER-->
+        <Grid MouseLeftButtonDown="DragMoveWindow">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="150" />
+            </Grid.ColumnDefinitions>
+            <Rectangle Fill="Red" />
+            <StackPanel 
+                Orientation="Horizontal" 
+                Grid.Column="1" 
+                >
+                <Button Style="{StaticResource OperationalButton}">
+                    <materialDesign:PackIcon Kind="Minus" />
+                </Button>
+                <Button Style="{StaticResource OperationalButton}">
+                    <materialDesign:PackIcon Kind="WindowMaximize" />
+                </Button>
+                <Button Click="CloseMainWindow" Style="{StaticResource OperationalButton}">
+                    <materialDesign:PackIcon Kind="Close" />
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

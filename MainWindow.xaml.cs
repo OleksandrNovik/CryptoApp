@@ -20,5 +20,14 @@ namespace TestTrainee
         {
             InitializeComponent();
         }
+        private void DragMoveWindow(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void CloseMainWindow(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
