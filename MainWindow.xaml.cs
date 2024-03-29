@@ -13,7 +13,7 @@ namespace TestTrainee
         public MainWindow()
         {
             InitializeComponent();
-            var vm = new MainWindowViewModel(this);
+            var vm = new MainWindowViewModel(this, nameof(MainWindow));
             DataContext = vm;
         }
 

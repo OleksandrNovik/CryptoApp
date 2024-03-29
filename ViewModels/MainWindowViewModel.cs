@@ -4,6 +4,7 @@ namespace TestTrainee.ViewModels
 {
     public class MainWindowViewModel : BaseWindowViewModel
     {
-        public MainWindowViewModel(Window currentWindow) : base(currentWindow) { }
+        public MainWindowViewModel(Window currentWindow, string windowName) 
+            : base(currentWindow, windowName) { }
     }
 }
