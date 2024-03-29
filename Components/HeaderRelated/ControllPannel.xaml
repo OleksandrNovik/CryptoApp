@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="TestTrainee.Components.Header.ControllPannel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestTrainee.Components.Header"
+             mc:Ignorable="d" 
+             d:DesignHeight="70" d:DesignWidth="800"
+             FontFamily="{DynamicResource MaterialDesignFonts}">
+    <UserControl.Resources>
+        <Style x:Key="Header" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="25, 0, 0, 0" />
+            <Setter Property="FontSize" Value="35" />
+        </Style>
+        <Style x:Key="MenuButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Margin" Value="5, 0, 5, 0" />
+        </Style>
+
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Style="{StaticResource Header}"> Crypto App </TextBlock>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource MenuButton}"> Home </Button>
+            <Button  
+                Grid.Column="1" 
+                Style="{StaticResource MenuButton}">
+                Markets</Button>
+            <Button 
+                Grid.Column="2" 
+                Style="{StaticResource MenuButton}">
+                Settings</Button>
+        </Grid>
+    </Grid>
+</UserControl>

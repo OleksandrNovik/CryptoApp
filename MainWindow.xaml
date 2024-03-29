@@ -3,25 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:components="clr-namespace:TestTrainee.Components"
+        xmlns:headerrelated="clr-namespace:TestTrainee.Components.HeaderRelated"
         mc:Ignorable="d"
         Title="CryptoApp"
         WindowStyle="None"
         MinHeight="450" 
         MinWidth="800"
+        MouseLeftButtonDown="DragEvent"
         >
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" CornerRadius="0" GlassFrameThickness="0"  />
     </WindowChrome.WindowChrome>
 
-    <Grid MouseLeftButtonDown="DragEvent">
+    <Grid>
         <Grid.RowDefinitions>
             <!-- Header -->
             <RowDefinition Height="60" />
             <!--Content Section-->
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <!--TODO: ADD THIS TO HEADER-->
-        <components:Header />
+        <headerrelated:Header />
     </Grid>
 </Window>
