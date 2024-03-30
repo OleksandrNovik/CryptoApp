@@ -5,6 +5,7 @@ using System.Windows.Input;
 using TestTrainee.Models;
 using TestTrainee.Services;
 using TestTrainee.Services.HttpRequests;
+using TestTrainee.Views;
 
 namespace TestTrainee.ViewModels
 {
@@ -34,6 +35,11 @@ namespace TestTrainee.ViewModels
         {
             await GetCurrents();
         });
+
+        /// <summary>
+        /// Command to access Id of current, when user clicks More Info button this command runs
+        /// </summary>
+        public RelayCommand<string> MoreInfoCommand => new RelayCommand<string>(ShowInfo);
 
         /// <summary>
         /// Full prop for currents list
@@ -72,6 +78,12 @@ namespace TestTrainee.ViewModels
             int.TryParse(NumberInputValue, out int number);
             currentList = await http.SearchCurrent(SearchQuery, number);
             CurrentList = new ObservableCollection<CurrentModel>(currentList);
+        }
+        private void ShowInfo(string currentId)
+        {
+            var currentWindow = new CurrentDetailsWindow(currentId);
+            currentWindow.Show();
+            _window.Close();
         }
     }
 }

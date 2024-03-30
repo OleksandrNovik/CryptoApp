@@ -9,7 +9,7 @@ namespace TestTrainee.ViewModels
 {
     public abstract class BaseWindowViewModel : INotifyPropertyChanged
     {
-        private readonly Window _window;
+        protected readonly Window _window;
         private readonly string windowName;
 
         public event PropertyChangedEventHandler? PropertyChanged;

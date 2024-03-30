@@ -6,7 +6,7 @@ namespace TestTrainee.Services
     {
         public static readonly Dictionary<string, Window> Navigation = new Dictionary<string, Window>()
         {
-            { nameof(MainWindow), new MainWindow() },
+            { "Home", new MainWindow() },
         };
     }
 }
