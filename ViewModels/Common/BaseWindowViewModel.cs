@@ -1,14 +1,24 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using TestTrainee.Services;
 
 namespace TestTrainee.ViewModels
 {
-    public abstract class BaseWindowViewModel
+    public abstract class BaseWindowViewModel : INotifyPropertyChanged
     {
         private readonly Window _window;
         private readonly string windowName;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public RelayCommand<string> Navigate => new RelayCommand<string>(NavigateTo);
         public ICommand CloseCommand => new RelayCommand<object?>(execute => { _window.Close(); });
         public ICommand ResizeCommand => new RelayCommand<object?>(execute => { ResizeWindow(); });

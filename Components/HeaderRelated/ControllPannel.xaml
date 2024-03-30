@@ -8,7 +8,7 @@
              d:DesignHeight="70" d:DesignWidth="800"
              FontFamily="{DynamicResource MaterialDesignFonts}">
     <UserControl.Resources>
-        <Style x:Key="Header" TargetType="TextBlock">
+        <Style x:Key="Header" TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignHeadline3TextBlock}">
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Margin" Value="25, 0, 0, 0" />
             <Setter Property="FontSize" Value="35" />

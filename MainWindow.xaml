@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:headerrelated="clr-namespace:TestTrainee.Components.HeaderRelated"
+        xmlns:headerrelated="clr-namespace:TestTrainee.Components.HeaderRelated" xmlns:currentlist="clr-namespace:TestTrainee.Components.CurrentList" xmlns:searchbar="clr-namespace:TestTrainee.Components.SearchBar"
         mc:Ignorable="d"
         Title="CryptoApp"
         WindowStyle="None"
@@ -24,5 +24,13 @@
         </Grid.RowDefinitions>
         <headerrelated:Header />
         <Rectangle Grid.Row="1" Fill="{StaticResource BgColor}" />
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <searchbar:SearchBar />
+            <currentlist:CurrentList Grid.Row="1" />
+        </Grid>
     </Grid>
 </Window>
