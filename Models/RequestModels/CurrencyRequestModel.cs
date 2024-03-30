@@ -4,6 +4,11 @@
     {
         public List<CurrencyRequestModel> Data { get; set; }
     }
+
+    public class OneCurrencyResponce 
+    { 
+        public CurrencyRequestModel Data { get; set; }
+    }
     public class CurrencyRequestModel
     {
         public string Id { get; set; }

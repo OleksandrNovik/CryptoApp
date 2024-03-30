@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using TestTrainee.ViewModels;
 
 namespace TestTrainee.Views
 {
@@ -11,6 +12,8 @@ namespace TestTrainee.Views
         public CurrentDetailsWindow(string currentId)
         {
             InitializeComponent();
+            var vm = new CurrentDetailsWindowViewModel(this, "Details", currentId);
+            DataContext = vm;
         }
 
         public void DragEvent(object sender, MouseButtonEventArgs e)

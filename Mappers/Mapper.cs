@@ -10,6 +10,20 @@ namespace TestTrainee.Mappers
 {
     public class Mapper
     {
+        private string NullOrValue(decimal? value) => value.HasValue ? value.Value.ToString("0.#####") : "Unknown";
+        public CurrentDetailsModel DetailedModel(CurrencyRequestModel rm)
+        {
+            return new CurrentDetailsModel
+            {
+                Name = $"{rm.Name} ({rm.Symbol})",
+                ChangePercent24Hr = NullOrValue(rm.ChangePercent24Hr),
+                MarketCapUsd = NullOrValue(rm.MarketCapUsd),
+                MaxSupply = NullOrValue(rm.MaxSupply),
+                PriceUsd = NullOrValue(rm.PriceUsd),
+                Supply = NullOrValue(rm.Supply),
+                VolumeUsd24Hr = NullOrValue(rm.VolumeUsd24Hr),
+            };
+        }
         public CurrentModel FromRequest(CurrencyRequestModel rm)
         {
             return new CurrentModel

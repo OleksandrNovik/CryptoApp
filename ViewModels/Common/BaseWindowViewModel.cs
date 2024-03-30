@@ -19,7 +19,7 @@ namespace TestTrainee.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public RelayCommand<string> Navigate => new RelayCommand<string>(NavigateTo);
+        public RelayCommand<string> NavigateCommand => new RelayCommand<string>(NavigateTo);
         public ICommand CloseCommand => new RelayCommand<object?>(execute => { _window.Close(); });
         public ICommand ResizeCommand => new RelayCommand<object?>(execute => { ResizeWindow(); });
         public ICommand MinimizeCommand => new RelayCommand<object?>(execute => { _window.WindowState = WindowState.Minimized; });
