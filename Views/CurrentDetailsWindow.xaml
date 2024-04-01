@@ -1,0 +1,131 @@
+﻿<Window x:Class="TestTrainee.Views.CurrentDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestTrainee.Views" xmlns:headerrelated="clr-namespace:TestTrainee.Components.HeaderRelated" 
+        mc:Ignorable="d"
+        Title="{Binding Model.Name}" 
+        WindowStyle="None"
+        MinHeight="450" 
+        MinWidth="800"
+        MouseLeftButtonDown="DragEvent" 
+        >
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" CornerRadius="0" GlassFrameThickness="0"  />
+    </WindowChrome.WindowChrome>
+    <!--TODO: Add title for a current-->
+
+    <Window.Resources>
+        <Style x:Key="Block" TargetType="Grid">
+            <Setter Property="Background" Value="{DynamicResource HeaderColor}" />
+            <Setter Property="Margin" Value="25"/>
+        </Style>
+        <Style x:Key="Header1" TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignHeadline2TextBlock}">
+            
+        </Style>
+        <Style x:Key="Body2" TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignBody2TextBlock}">
+            <Setter Property="Margin" Value="30, 0, -15, 0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style x:Key="Body1" TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignBody1TextBlock}">
+            <Setter Property="Margin" Value="30, 0, -15, 0" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Header -->
+            <RowDefinition Height="60" />
+            <!--Content Section-->
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <headerrelated:Header />
+        <Rectangle Grid.Row="1" Fill="{DynamicResource BgColor}" />
+        <Grid Grid.Row="1" Style="{StaticResource Block}">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="2.5*" />
+            </Grid.RowDefinitions>
+            <TextBlock
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Style="{StaticResource Header1}"
+                Text="{Binding Model.Name}"
+                />
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <StackPanel  Orientation="Horizontal">
+                    <TextBlock
+                        Text="Price:"
+                        FontSize="30"
+                        Style="{StaticResource Body1}"
+                        />
+                    <TextBlock 
+                        Text="{Binding Model.Supply}"
+                        FontSize="30"
+                        Style="{StaticResource Body1}"
+                        />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <TextBlock
+                        Text="Total pricing:"
+                        Style="{StaticResource Body1}"
+                        />
+                    <TextBlock 
+                        Text="{Binding Model.MarketCapUsd}"
+                        Style="{StaticResource Body1}"
+                        />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <TextBlock
+                        Text="Avalible suply for traiding:"
+                        Style="{StaticResource Body1}"
+                        />
+                    <TextBlock 
+                        Text="{Binding Model.Supply}"
+                        Style="{StaticResource Body1}"
+                        />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Orientation="Horizontal">
+                    <TextBlock
+                        Text="With total assets issued:"
+                        Style="{StaticResource Body1}"
+                        />
+                    <TextBlock 
+                        Text="{Binding Model.MaxSupply}"
+                        Style="{StaticResource Body1}"
+                        />
+                </StackPanel>
+                <StackPanel Grid.Row="4" Orientation="Horizontal">
+                    <TextBlock
+                        Text="Traded volume in USD:"
+                        Style="{StaticResource Body1}"
+                        />
+                    <TextBlock 
+                        Text="{Binding Model.VolumeUsd24Hr}"
+                        Style="{StaticResource Body1}"
+                        />
+                </StackPanel>
+                <StackPanel Grid.Row="5" Orientation="Horizontal">
+                    <TextBlock
+                        Text="On markets:"
+                        Style="{StaticResource Body1}"
+                        />
+                    <TextBlock
+                        Text="{Binding Model.Markets}"
+                        Style="{StaticResource Body1}"
+                        />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
