@@ -1,14 +1,23 @@
 ﻿namespace TestTrainee.Models.RequestModels
 {
+    /// <summary>
+    /// Model that is returned by API when we get some number of current items
+    /// </summary>
     public class CurrencyResponse
     {
         public List<CurrencyRequestModel> Data { get; set; }
     }
 
+    /// <summary>
+    /// Model that is reutrned by API when we get extended information about some current
+    /// </summary>
     public class OneCurrencyResponce 
     { 
         public CurrencyRequestModel Data { get; set; }
     }
+    /// <summary>
+    /// Request model that holds all props API provides for a current
+    /// </summary>
     public class CurrencyRequestModel
     {
         public string Id { get; set; }

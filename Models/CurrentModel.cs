@@ -1,5 +1,8 @@
 ﻿namespace TestTrainee.Models
 {
+    /// <summary>
+    /// Basic information about current to show it as item of list
+    /// </summary>
     public class CurrentModel
     {
         public string Id { get; set; }

@@ -23,7 +23,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <headerrelated:Header />
-        <Rectangle Grid.Row="1" Fill="{StaticResource BgColor}" />
+        <Rectangle Grid.Row="1" Fill="{DynamicResource BgColor}" />
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="110" />

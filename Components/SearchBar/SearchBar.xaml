@@ -10,17 +10,17 @@
     <UserControl.Resources>
         <Style x:Key="SearchBlock" TargetType="Grid">
             <Setter Property="Height" Value="80" />
-            <Setter Property="Background" Value="{StaticResource HeaderColor}" />
+            <Setter Property="Background" Value="{DynamicResource HeaderColor}" />
             <Setter Property="Margin" Value="20" />
         </Style>
         <Style x:Key="SearchBar" TargetType="TextBox">
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="FontSize" Value="22" />
             <Setter Property="Height" Value="40" />
-            <Setter Property="Background" Value="{StaticResource HeaderColor}" />
+            <Setter Property="Background" Value="{DynamicResource HeaderColor}" />
         </Style>
         <Style x:Key="MenuButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatMidBgButton}">
-            <Setter Property="Background" Value="{StaticResource BgColor}" />
+            <Setter Property="Background" Value="{DynamicResource BgColor}" />
             <Setter Property="Height" Value="40" />
         </Style>
     </UserControl.Resources>
@@ -32,7 +32,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Border BorderBrush="{StaticResource BgColor}"
+        <Border BorderBrush="{DynamicResource BgColor}"
             BorderThickness="2"
             VerticalAlignment="Center"
             Margin="20, 0, 0, 0"

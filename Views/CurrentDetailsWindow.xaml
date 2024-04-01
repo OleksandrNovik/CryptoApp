@@ -18,7 +18,7 @@
 
     <Window.Resources>
         <Style x:Key="Block" TargetType="Grid">
-            <Setter Property="Background" Value="{StaticResource HeaderColor}" />
+            <Setter Property="Background" Value="{DynamicResource HeaderColor}" />
             <Setter Property="Margin" Value="25"/>
         </Style>
         <Style x:Key="Header1" TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignHeadline2TextBlock}">
@@ -42,7 +42,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <headerrelated:Header />
-        <Rectangle Grid.Row="1" Fill="{StaticResource BgColor}" />
+        <Rectangle Grid.Row="1" Fill="{DynamicResource BgColor}" />
         <Grid Grid.Row="1" Style="{StaticResource Block}">
             <Grid.RowDefinitions>
                 <RowDefinition />
@@ -117,11 +117,11 @@
                 </StackPanel>
                 <StackPanel Grid.Row="5" Orientation="Horizontal">
                     <TextBlock
-                        Text="Change in last 24h:"
+                        Text="On markets:"
                         Style="{StaticResource Body1}"
                         />
-                    <TextBlock 
-                        Text="{Binding Model.ChangePercent24Hr}"
+                    <TextBlock
+                        Text="{Binding Model.Markets}"
                         Style="{StaticResource Body1}"
                         />
                 </StackPanel>

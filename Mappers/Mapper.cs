@@ -1,29 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TestTrainee.Models;
+﻿using TestTrainee.Models;
 using TestTrainee.Models.RequestModels;
 
 namespace TestTrainee.Mappers
 {
+    /// <summary>
+    /// Mapper, which takes request model and maps values for a UI models
+    /// </summary>
     public class Mapper
     {
+        /// <summary>
+        /// Method to return string interpretation of decimal from API
+        /// </summary>
+        /// <param name="value"> Some decimal value, that can be null </param>
+        /// <returns>  If items is null returns "Unknown", otherwise value of this decimal as string </returns>
         private string NullOrValue(decimal? value) => value.HasValue ? value.Value.ToString("0.#####") : "Unknown";
+        
+        /// <summary>
+        /// Turns request model into detailed model of current
+        /// </summary>
+        /// <param name="rm"> Request model </param>
+        /// <returns> Mapped values of request model into UI model </returns>
         public CurrentDetailsModel DetailedModel(CurrencyRequestModel rm)
         {
             return new CurrentDetailsModel
             {
                 Name = $"{rm.Name} ({rm.Symbol})",
-                ChangePercent24Hr = NullOrValue(rm.ChangePercent24Hr),
-                MarketCapUsd = NullOrValue(rm.MarketCapUsd),
                 MaxSupply = NullOrValue(rm.MaxSupply),
                 PriceUsd = NullOrValue(rm.PriceUsd),
                 Supply = NullOrValue(rm.Supply),
                 VolumeUsd24Hr = NullOrValue(rm.VolumeUsd24Hr),
             };
         }
+        /// <summary>
+        /// Turns request model into basic info model
+        /// </summary>
+        /// <param name="rm"> Request model </param>
+        /// <returns> Basic info UI model </returns>
         public CurrentModel FromRequest(CurrencyRequestModel rm)
         {
             return new CurrentModel
@@ -34,6 +46,12 @@ namespace TestTrainee.Mappers
                 PriceChange = rm.ChangePercent24Hr ?? 0
             };
         }
+
+        /// <summary>
+        /// Takes range request items and turns them all into basic info models 
+        /// </summary>
+        /// <param name="rmList"> List of request models </param>
+        /// <returns> List of resulted UI models </returns>
         public List<CurrentModel> FromRequestRange(List<CurrencyRequestModel> rmList)
         {
             var list = new List<CurrentModel>();

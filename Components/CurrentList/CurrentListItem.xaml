@@ -11,7 +11,7 @@
         <Style x:Key="Block" TargetType="Grid">
             <Setter Property="Height" Value="310" />
             <Setter Property="Margin" Value="20, 0, 20, 15" />
-            <Setter Property="Background" Value="{StaticResource HeaderColor}" />
+            <Setter Property="Background" Value="{DynamicResource HeaderColor}" />
         </Style>
     </UserControl.Resources>
     <Grid Style="{StaticResource Block}">

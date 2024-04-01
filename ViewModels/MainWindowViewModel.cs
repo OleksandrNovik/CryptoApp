@@ -9,6 +9,9 @@ using TestTrainee.Views;
 
 namespace TestTrainee.ViewModels
 {
+    /// <summary>
+    /// Main window view model, which contains all needed commands and props
+    /// </summary>
     public class MainWindowViewModel : BaseWindowViewModel
     {
         /// <summary>
@@ -45,6 +48,10 @@ namespace TestTrainee.ViewModels
         /// Full prop for currents list
         /// </summary>
         private ObservableCollection<CurrentModel> currents = new ObservableCollection<CurrentModel>();
+        
+        /// <summary>
+        /// Collection of current basic info
+        /// </summary>
         public ObservableCollection<CurrentModel> CurrentList
         {
             get => currents;
@@ -54,7 +61,14 @@ namespace TestTrainee.ViewModels
                 OnPropertyChanged();
             }
         }
+        /// <summary>
+        /// Field, which contains search query
+        /// </summary>
         private string searchQuery = "";
+        
+        /// <summary>
+        /// Property to access search query 
+        /// </summary>
         public string SearchQuery
         {
             get => searchQuery;
@@ -63,7 +77,15 @@ namespace TestTrainee.ViewModels
                 searchQuery = value;
             }
         }
+
+        /// <summary>
+        /// Field for number of items selected by get request
+        /// </summary>
         private string numberInputValue = "";
+        
+        /// <summary>
+        /// Property to access and bind number input
+        /// </summary>
         public string NumberInputValue
         {
             get => numberInputValue;
@@ -72,6 +94,10 @@ namespace TestTrainee.ViewModels
                 numberInputValue = value;
             }
         }
+        /// <summary>
+        /// Get current list by input values 
+        /// </summary>
+        /// <returns> Completed task </returns>
         private async Task GetCurrents()
         {
             List<CurrentModel> currentList;
@@ -79,6 +105,12 @@ namespace TestTrainee.ViewModels
             currentList = await http.SearchCurrent(SearchQuery, number);
             CurrentList = new ObservableCollection<CurrentModel>(currentList);
         }
+
+        /// <summary>
+        /// Show more info about current by its id
+        /// Creates new window and closes current main window
+        /// </summary>
+        /// <param name="currentId"> Id of current </param>
         private void ShowInfo(string currentId)
         {
             var currentWindow = new CurrentDetailsWindow(currentId);

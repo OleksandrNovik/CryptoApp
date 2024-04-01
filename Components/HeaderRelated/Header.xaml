@@ -20,9 +20,9 @@
             <ColumnDefinition Width="5*" />
             <ColumnDefinition Width="180" />
         </Grid.ColumnDefinitions>
-        <Rectangle Fill="{StaticResource HeaderColor}" />
+        <Rectangle Fill="{DynamicResource HeaderColor}" />
         <pannel:ControllPannel />
-        <Rectangle Grid.Column="1" Fill="{StaticResource HeaderColor}" />
+        <Rectangle Grid.Column="1" Fill="{DynamicResource HeaderColor}" />
         <StackPanel
                 HorizontalAlignment="Right"
                 Orientation="Horizontal" 

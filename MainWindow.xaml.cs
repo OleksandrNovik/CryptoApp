@@ -6,10 +6,13 @@ using TestTrainee.Views;
 namespace TestTrainee
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Main window, that shows list of top current items from API
     /// </summary>
     public partial class MainWindow : Window, IDragableWindow
     {
+        /// <summary>
+        /// Constructor that initialize all needed fields
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -17,6 +20,11 @@ namespace TestTrainee
             DataContext = vm;
         }
 
+        /// <summary>
+        /// Drag event for current window
+        /// </summary>
+        /// <param name="sender"> Event sender </param>
+        /// <param name="e"> Event params </param>
         public void DragEvent(object sender, MouseButtonEventArgs e)
         {
             DragMove();
