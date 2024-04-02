@@ -10,7 +10,7 @@ All functional abilities are listed below:
   ### Additional
  - Change theme for dark or light mode
 
-## For implementation I chosen those nuget packages:
+## For implementation I've chosen those nuget packages:
 - MaterialDesignThemes provides huge varaity of redy-to-use compontents for UI creation;
 - Newtonsoft.Json to parse json objects from API resonces
 - MvvmLightLibs has implementations of RelayCommand generic class, which makes commands much easier to create
